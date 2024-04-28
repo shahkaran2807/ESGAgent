@@ -74,8 +74,12 @@ const MessageForm = () => {
     <div>
       {!loading ? (
         <div className=" flex justify-center items-center">
-          <div className="bg-orange-50 shadow-lg rounded-lg p-6 lg:m-8 mt-8 whitespace-pre-wrap">
-            {convertTextToHTML(resp.replace(/\*\*(.*?)\*\*/g, '$1'))}
+          <div className="bg-orange-50 shadow-lg rounded-lg lg:m-8 mt-8 whitespace-pre-wrap">
+            {resp != '' ? (
+              <div className="m-6">{convertTextToHTML(resp.replace(/\*\*(.*?)\*\*/g, '$1'))}</div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       ) : (
